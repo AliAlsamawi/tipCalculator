@@ -40,29 +40,31 @@ const calculateBill = () => {
   // console.log(tipPercentage);
 
   // get the total tip amount
-  let totalTipAmount = billAmount * tipPercentage
+  let totalTipAmount = billAmount * tipPercentage;
   // console.log(totalTipAmount);
 
   // calculate the total (tip amount + bill)
-  let billTotal = totalTipAmount + billAmount
+  let billTotal = totalTipAmount + billAmount;
   // console.log(billTotal);
 
-
   // calculate the per person total (total divided by number of people)
-  let personTotal = billTotal / numberOfPeople
+  let personTotal = billTotal / numberOfPeople;
   // console.log(personTotal);
   // update the perPersonTotal on DOM & show it to user
-  perPersonTotalDiv.innerText = `$${personTotal.toLocaleString('en-US')}`
-
+  perPersonTotalDiv.innerText = `$${personTotal.toLocaleString("en-US")}`;
 };
 
 // ** Splits the bill between fewer people **
 
 const increasePeople = () => {
   // increment the amount of people
+  numberOfPeople += 1;
   // update the DOM with the new number of people
+  numberOfPeopleDiv.innerText = numberOfPeople;
   // calculate the bill based on the new number of people
+  calculateBill()
 };
+// increasePeople();
 
 // ** Splits the bill between fewer people **
 const decreasePeople = () => {
@@ -74,4 +76,4 @@ const decreasePeople = () => {
   // calculate the bill based on the new number of people
 };
 
-calculateBill()
+calculateBill();
